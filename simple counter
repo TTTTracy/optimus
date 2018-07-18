@@ -1,0 +1,89 @@
+%简单计算器
+
+  hf=figure('Color',[0,1,1],'Position',[100,200,400,200],...
+
+      'Name','简单计算器','NumberTitle','off','MenuBar','none');
+
+   %文本1 用于输入数1
+
+  ht1=uicontrol(hf,'Style','Text','Position',[0.1,0.8,0.2,0.1],...
+
+      'Units','normalized','String','数1');
+
+  %文本2 用于输入数2
+
+  ht2=uicontrol(hf,'Style','Text','Position',[0.4,0.8,0.2,0.1],...
+
+      'Units','normalized','String','数2');
+
+  %文本3 用于输入数2
+
+  ht3=uicontrol(hf,'Style','Text','Position',[0.7,0.8,0.2,0.1],...
+
+      'Units','normalized','String','结果');
+
+  %编辑框1 用于输入数1
+
+  he1=uicontrol(hf,'Style','Edit','Position',[0.1,0.6,0.2,0.1],...
+
+      'Units','normalized','Back',[0,1,0]);
+
+  %编辑框2 用于输入数2
+
+  he2=uicontrol(hf,'Style','Edit','Position',[0.4,0.6,0.2,0.1],...
+
+      'Units','normalized','Back',[0,1,0]);
+
+  %编辑框2 用于输入数2
+
+  he3=uicontrol(hf,'Style','Edit','Position',[0.7,0.6,0.2,0.1],...
+
+      'Units','normalized','Back',[0,1,0]);
+
+   %下面这段代码用于实现数1加数2，并把结果显示到编辑框3
+
+  ADD=['n1=str2num(get(he1,''String''));','n2=str2num(get(he2,''String''));',...
+
+      'res=n1+n2;','set(he3,''string'',res);'];
+
+   %下面这段代码用于实现数1减数2，并把结果显示到编辑框3
+
+  SUB=['n1=str2num(get(he1,''String''));','n2=str2num(get(he2,''String''));',...
+
+      'res=n1-n2;','set(he3,''string'',res);'];
+
+   %下面这段代码用于实现数1乘数2，并把结果显示到编辑框3
+
+  MUL=['n1=str2num(get(he1,''String''));','n2=str2num(get(he2,''String''));',...
+
+      'res=n1*n2;','set(he3,''string'',res);'];
+
+   %下面这段代码用于实现数1除数2，并把结果显示到编辑框3
+
+  DIV=['n1=str2num(get(he1,''String''));','n2=str2num(get(he2,''String''));',...
+
+      'res=n1/n2;','set(he3,''string'',res);'];
+
+  %加法按钮
+
+  uicontrol(hf,'Style','Push','Position',[0.1,0.3,0.2,0.12],...
+
+       'String','+','Units','normalized','Call',ADD);
+
+  %减法按钮
+
+  uicontrol(hf,'Style','Push','Position',[0.3,0.3,0.2,0.12],...
+
+       'String','-','Units','normalized','Call',SUB);
+
+   %乘法按钮
+
+  uicontrol(hf,'Style','Push','Position',[0.5,0.3,0.2,0.12],...
+
+       'String','*','Units','normalized','Call',MUL);
+
+  %除法按钮
+
+  uicontrol(hf,'Style','Push','Position',[0.7,0.3,0.2,0.12],...
+
+       'String','/','Units','normalized','Call',DIV);
